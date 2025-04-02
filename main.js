@@ -10,7 +10,12 @@ document.getElementById("form").addEventListener("submit", function(event) {
     localStorage.setItem("user", JSON.stringify(user));
 
     const UserInfo = JSON.parse(localStorage.getItem("user"));
-    document.body.innerHTML = `<p>HOLA ${UserInfo.name} EMAIL: ${UserInfo.email} MENSAJE: ${UserInfo.message} IMAGEN: ${UserInfo.image}</p>`;
+    let UserInfoparagraph = document.createElement("p");    
+    UserInfoparagraph.innerHTML = `HOLA ${UserInfo.name} <br> EMAIL: ${UserInfo.email} <br> MENSAJE: ${UserInfo.message} <br> IMAGEN: ${UserInfo.image}`;
+    document.body.appendChild(UserInfoparagraph);
 });
 
+document.getElementById("clear").addEventListener("click", function() {
+    localStorage.clear();
+});
 
